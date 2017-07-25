@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3>Welcome to Recap View from TicketBundle</h3>
+
+
+    <div>
+        {% for ticket in tickets %}
+            <tr>
+                <td> Ticket for :</td>
+                <td>Date = {{ ticket.dateOfVisit | date('d-m-Y') }}</td>
+                <td>First name = {{ ticket.visitor.firstName }}</td>
+                <td>Name = {{ ticket.visitor.name }}</td>
+                <td>BirthDate = {{ ticket.visitor.birthDate | date('d-m-Y') }}</td>
+                <td>Price = {{ ticket.price }}</td>
+                <a href="{{ path('deleteVisitor', {'firstName' : ticket.visitor.firstName , 'lastName' : ticket.visitor.name })  }}" class="btn btn-primary">Retirer ce visiteur de la liste </a>
+                <br/><br/>
+            </tr>
+        {%  endfor %}
+    </div>
+
+    {{ form_start(recapAndPayForm)  }}
+    {{ form_widget(recapAndPayForm) }}
+    {{ form_end(recapAndPayForm) }}
+
+    <br/>
+
+    <button type="submit" class ="btn btn-primary">Confirmer</button>
+
+    <a href="{{ path('visitor')  }}" class="btn btn-primary">Ajouter un visiteur</a>
+    <a href="{{ path('finalizeOrder')  }}" class="btn btn-primary">Payer</a>
+
+
+
+{% endblock %}

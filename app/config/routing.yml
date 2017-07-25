@@ -1,8 +1,10 @@
-ticket:
-    resource: "@TicketBundle/Controller/"
-    type:     annotation
-    prefix:   /ticket
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    prefix:   /
+
+tickets:
+    resource: "@TicketBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

@@ -10,10 +10,9 @@ class Builder
 
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
-        $menu->addChild('Home', ['route' => 'homepage']);
-
+        $menu->addChild('Accueil', ['route' => 'homepage']);
+        $menu->addChild('Acheter vos Billets', ['route' => 'ordertickets']);
         return $menu;
-
 
     }
 }

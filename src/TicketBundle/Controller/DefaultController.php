@@ -4,14 +4,29 @@ namespace TicketBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use TicketBundle\TicketFolder\TicketFolder;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/ticket")
      */
+
+
     public function indexAction()
     {
-        return $this->render('TicketBundle:Default:index.html.twig');
+
+        //$ticketFolder = new TicketFolder();
+
+
+        return $this->render('TicketBundle:default:index.html.twig');
+    }
+
+    public function getTicketFolder()
+    {
+        $session = $this->get('session');
+        $ticketFolder = $session->get('ticketFolder');
+        if (!$ticketFolder) $ticketFolder = new TicketFolder($session);
+        return $ticketFolder;
     }
 }

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3><span>Commander des billets d'entrée au musée</h3>
+
+    {{ form_start(orderForm)  }}
+        {{ form_widget(orderForm) }}
+        <br/>
+
+        <button type="submit" class ="btn btn-primary">Ajouter un visiteur</button>
+
+    {{ form_end(orderForm) }}
+    <br/>
+    <div>
+        {{ message1 }}
+        {{ message2 }}
+    </div>
+
+{% endblock %}
