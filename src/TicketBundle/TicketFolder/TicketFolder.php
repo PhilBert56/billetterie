@@ -45,10 +45,15 @@ class TicketFolder
     }
 
 
-
     public function getCustomer()
     {
         return $this->customer;
+    }
+
+
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
     }
 
 
@@ -56,6 +61,28 @@ class TicketFolder
     {
         $this->tickets[] = $tickets ;
     }
+
+    public function setTotalAmount()
+    {
+        $tickets = $this->tickets;
+        $totalAmount = 0;
+        foreach ($tickets as $ticket){
+            $totalAmount = $totalAmount + $ticket->getPrice($ticket);
+        }
+        $this->totalAmount = $totalAmount;
+    }
+
+
+    public function getTotalAmount()
+    {
+        $tickets = $this->tickets;
+        $totalAmount = 0;
+        foreach ($tickets as $ticket){
+            $totalAmount = $totalAmount + $ticket->getPrice($ticket);
+        }
+        return $totalAmount;
+    }
+
 
 
     public function addTicketToTicketFolder($ticket)

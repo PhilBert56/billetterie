@@ -46,10 +46,6 @@ class VisitorController extends Controller
                 /* Vérifier si l'heure permet de commander un billet à la journée */
 
                 $dateOfVisit = $form['ticket']['dateOfVisit']->getData();
-                //dump($dateOfVisit);
-
-                //$day = new MuseumDay();
-                //$codeDateOk = $day->isDateOk($dateOfVisit);
 
                 $codeDateOk = $this->isDateOk($dateOfVisit);
                 /* Si date infaisable */

@@ -22,7 +22,6 @@
 
     {{ form_start(recapAndPayForm)  }}
     {{ form_widget(recapAndPayForm) }}
-    {{ form_end(recapAndPayForm) }}
 
     <br/>
 
@@ -31,6 +30,6 @@
     <a href="{{ path('visitor')  }}" class="btn btn-primary">Ajouter un visiteur</a>
     <a href="{{ path('finalizeOrder')  }}" class="btn btn-primary">Payer</a>
 
-
+    {{ form_end(recapAndPayForm) }}
 
 {% endblock %}

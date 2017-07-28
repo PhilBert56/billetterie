@@ -16,17 +16,9 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
-        //$ticketFolder = new TicketFolder();
-
 
         return $this->render('TicketBundle:default:index.html.twig');
     }
 
-    public function getTicketFolder()
-    {
-        $session = $this->get('session');
-        $ticketFolder = $session->get('ticketFolder');
-        if (!$ticketFolder) $ticketFolder = new TicketFolder($session);
-        return $ticketFolder;
-    }
+
 }

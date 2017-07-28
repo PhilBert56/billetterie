@@ -25,6 +25,18 @@ class Customer
      */
     private $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="customer")
+     */
+    private $tickets;
+
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $totalAmount;
+
+
 
     /**
      * @return mixed
@@ -56,6 +68,38 @@ class Customer
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
+
+    /**
+     * @param mixed $tickets
+     */
+    public function setTickets($tickets)
+    {
+        $this->tickets = $tickets;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotalAmount()
+    {
+        return $this->totalAmount;
+    }
+
+    /**
+     * @param mixed $totalAmount
+     */
+    public function setTotalAmount($totalAmount)
+    {
+        $this->totalAmount = $totalAmount;
     }
 
 

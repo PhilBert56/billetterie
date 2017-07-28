@@ -32,9 +32,18 @@ class Ticket
 
 
     /**
-     * @ORM\OneToOne(targetEntity="Visitor", mappedBy="ticket")
+     * @ORM\OneToOne(targetEntity="Visitor", inversedBy="ticket")
      */
     private $visitor;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy ="tickets")
+     */
+    private $customer;
+
+
+
 
     /**
      * @ORM\Column(type="integer")
@@ -173,6 +182,20 @@ class Ticket
     }
 
 
+    /**
+     * @return mixed
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
 
+    /**
+     * @param mixed $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
 
 }
